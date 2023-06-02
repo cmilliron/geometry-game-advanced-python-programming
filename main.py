@@ -1,3 +1,5 @@
+import random
+
 class Point:
 
     def __init__(self, x, y):
@@ -17,10 +19,15 @@ class Rectangle:
     def __init__(self, lowleft, upright):
         self.lowleft = lowleft
         self.upright = upright
+        self.rec_area = self.area()
 
+    def area(self):
+        change_in_x = abs(self.upright.x - self.lowleft.x)
+        change_in_y = abs(self.upright.y - self.lowleft.y)
+        return change_in_y * change_in_x
 
-point_x = Point(1, 1)
-point_y = Point(9, 9)
+point_x = Point(random.randint(0, 9), random.randint(0, 9))
+point_y = Point(random.randint(0, 9), random.randint(0, 9))
 
 rec_x = Rectangle(point_x, point_y)
 
